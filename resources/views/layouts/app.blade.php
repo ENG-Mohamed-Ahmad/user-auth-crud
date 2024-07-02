@@ -24,6 +24,9 @@
                     <a class="nav-link" href="{{ route('notes.index') }}">Notes</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile.edit') }}">Profile</a>
+                </li>
+                <li class="nav-item">
                     @if (Auth::check())
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
