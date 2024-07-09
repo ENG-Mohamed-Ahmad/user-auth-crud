@@ -20,17 +20,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::group([
-    'middleware' => ['api'],
-], function ($router) {
+Route::group(['middleware' => ['api']], function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);    
 
-    Route::middleware(['api'])->group(function () {
+    Route::middleware(['auth.api', 'auth:api'])->group(function () {
         Route::resource('/notes', NoteController::class);
     });
 });

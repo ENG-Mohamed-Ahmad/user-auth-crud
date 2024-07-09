@@ -27,16 +27,25 @@
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                    @if ($errors->has('name'))
+                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                    @endif
                 </div>
 
                 <div class="form-group mt-4">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                    @if ($errors->has('email'))
+                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                    @endif
                 </div>
 
                 <div class="form-group mt-4">
                     <label for="password">Password</label>
                     <input id="password" type="password" class="form-control" name="password" required>
+                    @if ($errors->has('password'))
+                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                    @endif
                 </div>
 
                 <div class="form-group mt-4">

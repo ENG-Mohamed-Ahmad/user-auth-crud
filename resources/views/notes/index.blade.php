@@ -6,6 +6,18 @@
 <div class="container">
     <h2>My Notes</h2>
     <a href="{{ route('notes.create') }}" class="btn btn-primary mb-3">Create New Note</a>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+
     <table class="table table-striped">
         <thead>
             <tr>
